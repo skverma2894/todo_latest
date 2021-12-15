@@ -1,0 +1,21 @@
+.inputItem {
+  display: flex;
+
+  margin-bottom: 30px;
+}
+
+.inputItem__form {
+  display: flex;
+  width: 100%;
+}
+
+.inputItem__textfield > div > input {
+  width: 50vw;
+  padding-bottom: 10px;
+  font-size: 24px;
+  color: grey;
+}
+
+.inputItem__btn {
+  width: 30px;
+}

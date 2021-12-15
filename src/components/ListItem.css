@@ -1,0 +1,27 @@
+.listItem {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80vw;
+}
+
+.listItem__input {
+  user-select: none;
+  -webkit-user-select: none;
+  margin-right: 20px;
+  width: 60%;
+  border: none;
+  /* border-bottom: 0.5px solid; */
+  background-color: white;
+  padding: 10px;
+}
+
+.listItem__edit {
+  margin-right: 10px;
+}
+
+.strike {
+  text-decoration: line-through;
+  color: rgb(39, 34, 34);
+}

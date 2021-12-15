@@ -1,12 +1,12 @@
 import "./App.css";
-import Input from "./components/Input";
+import InputItem from "./components/InputItem";
 import List from "./components/List";
 
 function App() {
   return (
     <div className="app">
       <h1>Todo List</h1>
-      <Input />
+      <InputItem />
       <List />
     </div>
   );

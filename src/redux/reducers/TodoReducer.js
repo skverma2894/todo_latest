@@ -1,31 +1,45 @@
-const initialState = {
-  todos: [
-    // {
-    //   todoItem: "",
-    //   id: 1,
-    //   completed: false,
-    // },
-  ],
-};
+const initialState = JSON.parse(localStorage.getItem("state"))
+  ? JSON.parse(localStorage.getItem("state"))
+  : { todos: [] };
 
 const TodoReducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case "ADD_ITEM":
       const { todoItem, id, completed } = payload;
+
+      localStorage.setItem(
+        "state",
+        JSON.stringify({
+          ...state,
+          todos: [
+            {
+              todoItem: todoItem,
+              id: id,
+              completed: completed,
+            },
+            ...state.todos,
+          ],
+        })
+      );
       return {
         ...state,
         todos: [
-          ...state.todos,
           {
             todoItem: todoItem,
             id: id,
             completed: completed,
           },
+          ...state.todos,
         ],
       };
     case "DELETE_ITEM":
       const todos1 = state.todos.filter((item) => item.id !== payload);
-
+      localStorage.setItem(
+        "state",
+        JSON.stringify({
+          todos: [...todos1],
+        })
+      );
       return {
         todos: [...todos1],
       };
@@ -39,6 +53,13 @@ const TodoReducer = (state = initialState, { type, payload }) => {
         return item;
       });
       console.log(todos2);
+      localStorage.setItem(
+        "state",
+        JSON.stringify({
+          ...state,
+          todos: [...todos2],
+        })
+      );
       return {
         ...state,
         todos: [...todos2],
